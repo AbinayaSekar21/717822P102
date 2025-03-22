@@ -1,13 +1,15 @@
-
 package com.example.project;
 
-import org.springframework.web.bind.annotation.*;
-
-        import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/comments")
 public class CommentController {
+
     private final CommentService commentService;
 
     public CommentController(CommentService commentService) {
@@ -15,7 +17,8 @@ public class CommentController {
     }
 
     @GetMapping("/{postId}")
-    public List<Comment> getComments(@PathVariable int postId) {
+    public Mono<ListOfComments> getComments(@PathVariable int postId) {
         return commentService.getCommentsByPostId(postId);
     }
 }
+
