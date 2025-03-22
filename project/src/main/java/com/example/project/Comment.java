@@ -1,34 +1,50 @@
+
 package com.example.project;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Comment {
     private int id;
-    private int postid;
+
+    @JsonProperty("postid")  
+    private int postId;
+
     private String content;
 
     // Constructors
     public Comment() {}
 
-    public Comment(int id, int postid, String content) {
+    public Comment(int id, int postId, String content) {
         this.id = id;
-        this.postid = postid;
+        this.postId = postId;
         this.content = content;
     }
 
-    // Getters and Setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() {
+        return id; 
+    }
+    public void setId(int id) { 
+        this.id = id; 
+    }
 
-    public int getPostid() { return postid; }
-    public void setPostid(int postid) { this.postid = postid; }
+    public int getPostId() { 
+        return postId; 
+    }
+    public void setPostId(int postId) { 
+        this.postId = postId; 
+    }
 
-    public String getContent() { return content; }
-    public void setContent(String content) { this.content = content; }
+    public String getContent() {
+        return content;
+    }
+    public void setContent(String content) { 
+        this.content = content; 
+    }
 
     @Override
     public String toString() {
         return "Comment{" +
                 "id=" + id +
-                ", postid=" + postid +
+                ", postId=" + postId +
                 ", content='" + content + '\'' +
                 '}';
     }
